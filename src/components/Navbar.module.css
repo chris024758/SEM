@@ -1,0 +1,69 @@
+.navbar {
+  height: 64px;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-primary-dk);
+  text-decoration: none;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.link {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.link:hover, .link.active {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.rightSide {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.postBtn {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 8px 16px;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.postBtn:hover {
+  background-color: var(--color-primary-dk);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+}

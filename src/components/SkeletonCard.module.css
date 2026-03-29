@@ -1,0 +1,84 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  height: 100%;
+}
+
+/* SHIMMER ANIMATION */
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.shimmer {
+  background: var(--color-surface-2);
+  background-image: linear-gradient(
+    to right,
+    var(--color-surface-2) 0%,
+    rgba(217, 207, 190, 0.4) 20%, /* --color-border faint */
+    var(--color-surface-2) 40%,
+    var(--color-surface-2) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 800px 100%; 
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards; 
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 12px;
+}
+
+.titlePlaceholder {
+  height: 14px;
+  border-radius: var(--radius-sm);
+  width: 85%;
+}
+
+.titlePlaceholderShort {
+  height: 14px;
+  border-radius: var(--radius-sm);
+  width: 60%;
+  margin-bottom: 8px;
+}
+
+.pricePlaceholder {
+  height: 20px;
+  border-radius: var(--radius-sm);
+  width: 40%;
+  margin-bottom: 12px;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerPlaceholder {
+  height: 12px;
+  border-radius: var(--radius-sm);
+  width: 30%;
+}

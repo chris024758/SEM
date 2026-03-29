@@ -1,0 +1,94 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 64px); /* Subtract Navbar */
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  transition: var(--transition);
+}
+
+.backBtn:hover {
+  background-color: var(--color-surface-2);
+  color: var(--color-text);
+}
+
+.counter {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+.invisiblePlaceholder {
+  width: 40px; /* To center the counter properly against the left backbtn flex box */
+}
+
+.stackContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden; /* Hide cards that fly off */
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 24px;
+}
+
+.actionsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.actionBtn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition);
+}
+
+.actionBtn:active {
+  transform: scale(0.92);
+}
+
+.actionBtn.skip {
+  background-color: var(--color-white);
+  color: var(--color-danger);
+  border: 2px solid var(--color-danger);
+}
+
+.actionBtn.save {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: 2px solid var(--color-primary);
+}
