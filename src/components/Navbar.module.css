@@ -60,10 +60,89 @@
   background-color: var(--color-primary-dk);
 }
 
+.adminIcon {
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.adminIcon:hover {
+  background-color: var(--color-surface-2);
+  color: var(--color-primary);
+}
+
 .avatar {
   width: 36px;
   height: 36px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--color-border);
+}
+
+/* Base state for mobile tab bar is hidden */
+.mobileTabBar {
+  display: none;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  /* Keep top navbar but simplify it */
+  .navbar {
+    padding: 0 16px;
+    height: 56px;
+  }
+
+  .navLinks {
+    display: none; /* Hide top links on mobile */
+  }
+
+  .rightSide {
+    display: flex;
+  }
+  
+  .postBtn {
+    display: none; /* Substituted by bottom tab post button */
+  }
+
+  .adminIcon {
+    display: none; /* Hide admin icon from top bar on mobile */
+  }
+
+  /* Show bottom mobile bar */
+  .mobileTabBar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    z-index: 1000;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+  }
+
+  .tabItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-text-muted);
+    font-size: 11px;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px;
+    transition: var(--transition);
+  }
+
+  .tabItem.activeTab, .tabItem:hover {
+    color: var(--color-primary-dk);
+  }
 }

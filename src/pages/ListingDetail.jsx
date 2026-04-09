@@ -106,7 +106,7 @@ export default function ListingDetail() {
 
             <hr className={styles.divider} />
 
-            <div className={styles.sellerBlock}>
+            <Link to={`/profile/${encodeURIComponent(item.seller.name)}`} className={styles.sellerBlock} style={{ textDecoration: 'none' }}>
               <img src={item.seller.avatar} alt={item.seller.name} className={styles.sellerAvatar} />
               <div className={styles.sellerInfo}>
                 <span className={styles.sellerName}>{item.seller.name}</span>
@@ -115,15 +115,16 @@ export default function ListingDetail() {
                   {item.seller.rating} / 5.0
                 </span>
               </div>
-            </div>
+            </Link>
 
             <div className={styles.actions}>
-              <button 
+              <Link 
+                to={`/messages/${encodeURIComponent(item.seller.name)}`}
                 className={styles.primaryBtn}
-                onClick={() => alert('Demo: Messaging seller...')}
+                style={{ textAlign: 'center' }}
               >
                 Message Seller
-              </button>
+              </Link>
               <button 
                 className={styles.ghostBtn}
                 onClick={() => alert('Demo: Saved to wishlist!')}

@@ -182,5 +182,200 @@ export const listings = [
     seller: { name: "Shruti P.", avatar: "https://i.pravatar.cc/150?u=shruti", rating: 5.0 },
     postedAt: "6 hours ago",
     saved: false
+  },
+  {
+    id: "13",
+    title: "Remington Portable Typewriter",
+    price: 3200,
+    category: "Hobbies",
+    condition: "Used - Good",
+    location: "Goa, GA",
+    description: "1930s Remington portable typewriter. All keys work, but needs a new ink ribbon. Case is included.",
+    images: [
+      "https://loremflickr.com/800/800/typewriter"
+    ],
+    seller: { name: "Anil T.", avatar: "https://i.pravatar.cc/150?u=anil", rating: 4.8 },
+    postedAt: "8 hours ago",
+    saved: false
+  },
+  {
+    id: "14",
+    title: "Polaroid SX-70 Camera",
+    price: 11000,
+    category: "Electronics",
+    condition: "Used - Good",
+    location: "Mumbai, MH",
+    description: "Classic folding Polaroid camera. Leather skin has some wear, but the optics are clean. Tested with SX-70 film and works beautifully.",
+    images: [
+      "https://loremflickr.com/800/800/polaroid"
+    ],
+    seller: { name: "Tanya M.", avatar: "https://i.pravatar.cc/150?u=tanya", rating: 4.9 },
+    postedAt: "1 day ago",
+    saved: true
+  },
+  {
+    id: "15",
+    title: "Vintage Globe Bookends",
+    price: 1500,
+    category: "Home",
+    condition: "Used - Good",
+    location: "Delhi, DL",
+    description: "Set of two wooden bookends with spinning brass globes. Adds academic charm to any shelf.",
+    images: [
+      "https://loremflickr.com/800/800/globe"
+    ],
+    seller: { name: "Kunal V.", avatar: "https://i.pravatar.cc/150?u=kunal", rating: 4.7 },
+    postedAt: "3 days ago",
+    saved: false
+  },
+  {
+    id: "16",
+    title: "Audio-Technica Vinyl Record Player",
+    price: 18500,
+    category: "Electronics",
+    condition: "Like New",
+    location: "Bangalore, KA",
+    description: "Mint condition AT-LP120XUSB turntable. Direct-drive, fully manual. Comes with the original stylus and dust cover.",
+    images: [
+      "https://loremflickr.com/800/800/turntable"
+    ],
+    seller: { name: "Sameer J.", avatar: "https://i.pravatar.cc/150?u=sameer", rating: 4.8 },
+    postedAt: "12 hours ago",
+    saved: true
+  },
+  {
+    id: "17",
+    title: "Antique Brass Telescope",
+    price: 6500,
+    category: "Hobbies",
+    condition: "Used - Good",
+    location: "Jaipur, RJ",
+    description: "Beautiful extendable brass spyglass telescope. Optics are decent, but it serves better as a statement decor piece.",
+    images: [
+      "https://loremflickr.com/800/800/telescope"
+    ],
+    seller: { name: "Rajat D.", avatar: "https://i.pravatar.cc/150?u=rajat", rating: 4.5 },
+    postedAt: "2 days ago",
+    saved: false
+  },
+  {
+    id: "18",
+    title: "Chesterfield Leather Sofa",
+    price: 45000,
+    category: "Furniture",
+    condition: "Used - Good",
+    location: "Mumbai, MH",
+    description: "Classic 3-seater Chesterfield in oxblood red leather. Shows some wear, which adds character. Extremely heavy, pickup only.",
+    images: [
+      "https://loremflickr.com/800/800/sofa"
+    ],
+    seller: { name: "Pooja K.", avatar: "https://i.pravatar.cc/150?u=pooja", rating: 5.0 },
+    postedAt: "4 days ago",
+    saved: false
+  },
+  {
+    id: "19",
+    title: "Nintendo 64 Console bundle",
+    price: 8000,
+    category: "Electronics",
+    condition: "Used - Fair",
+    location: "Pune, MH",
+    description: "Original N64 console with two controllers and three games (Super Mario 64 included). Tested and working.",
+    images: [
+      "https://loremflickr.com/800/800/nintendo"
+    ],
+    seller: { name: "Varun P.", avatar: "https://i.pravatar.cc/150?u=varun", rating: 4.7 },
+    postedAt: "5 hours ago",
+    saved: false
+  },
+  {
+    id: "20",
+    title: "Vintage Persian Rug",
+    price: 12000,
+    category: "Home",
+    location: "Delhi, DL",
+    condition: "Used - Good",
+    description: "Hand-knotted wool rug, approx 5x7 ft. Rich ruby and navy tones. Has been professionally cleaned.",
+    images: [
+      "https://loremflickr.com/800/800/rug"
+    ],
+    seller: { name: "Smriti W.", avatar: "https://i.pravatar.cc/150?u=smriti", rating: 4.9 },
+    postedAt: "1 week ago",
+    saved: true
+  },
+  {
+    id: "21",
+    title: "Retro Desk Fan",
+    price: 2200,
+    category: "Home",
+    condition: "Used - Fair",
+    location: "Chennai, TN",
+    description: "Mint green metal desk fan from the 70s. Single speed, moves a surprisingly large amount of air. Looks fantastic on a wooden desk.",
+    images: [
+      "https://loremflickr.com/800/800/fan"
+    ],
+    seller: { name: "Arvind R.", avatar: "https://i.pravatar.cc/150?u=arvind", rating: 4.6 },
+    postedAt: "3 days ago",
+    saved: false
+  },
+  {
+    id: "22",
+    title: "Mechanical Pocket Watch",
+    price: 5500,
+    category: "Clothing",
+    condition: "Used - Good",
+    location: "Kolkata, WB",
+    description: "Silver-tone hand-wound mechanical pocket watch with chain. Keeps good time (+/- 1m per day). Display back so you can see the gears.",
+    images: [
+      "https://loremflickr.com/800/800/pocketwatch"
+    ],
+    seller: { name: "Sayan M.", avatar: "https://i.pravatar.cc/150?u=sayan", rating: 4.8 },
+    postedAt: "1 day ago",
+    saved: false
+  },
+  {
+    id: "23",
+    title: "Silver Ornate Candelabra",
+    price: 3800,
+    category: "Home",
+    condition: "Used - Good",
+    location: "Hyderabad, TS",
+    description: "Heavy three-arm silver plated candelabra. Just polished. Perfect centerpiece for dining table.",
+    images: [
+      "https://loremflickr.com/800/800/candelabra"
+    ],
+    seller: { name: "Isha N.", avatar: "https://i.pravatar.cc/150?u=isha", rating: 4.4 },
+    postedAt: "18 hours ago",
+    saved: true
+  },
+  {
+    id: "24",
+    title: "Pearl Export Drum Kit",
+    price: 28000,
+    category: "Hobbies",
+    condition: "Used - Fair",
+    location: "Bangalore, KA",
+    description: "Standard 5-piece kit. Includes hi-hats and a crash/ride cymbal, plus throne and hardware. Great for garage bands.",
+    images: [
+      "https://loremflickr.com/800/800/drumkit"
+    ],
+    seller: { name: "Danny K.", avatar: "https://i.pravatar.cc/150?u=danny", rating: 4.9 },
+    postedAt: "5 days ago",
+    saved: false
+  },
+  {
+    id: "25",
+    title: "Antique Singer Sewing Machine",
+    price: 9500,
+    category: "Hobbies",
+    condition: "Used - Good",
+    location: "Pune, MH",
+    description: "Hand-crank model nested in original wooden dome case. Beautiful gold decals. Still functional if you know how to thread it.",
+    images: [
+      "https://loremflickr.com/800/800/sewing"
+    ],
+    seller: { name: "Kirti F.", avatar: "https://i.pravatar.cc/150?u=kirti", rating: 4.7 },
+    postedAt: "2 weeks ago",
+    saved: false
   }
 ];

@@ -274,3 +274,18 @@
   font-size: 24px;
   color: var(--color-text-muted);
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 16px 100px 16px; /* Avoid overlapping with mobile bottom tab */
+  }
+  
+  .title {
+    font-size: 28px;
+  }
+
+  .infoPanel {
+    padding: 24px 16px;
+  }
+}

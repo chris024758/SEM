@@ -240,3 +240,24 @@
     transform: translate(-50%, 0);
   }
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 16px 100px 16px; /* account for BottomTabBar */
+  }
+
+  .pageTitle {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .dropzone {
+    padding: 32px 16px;
+  }
+}

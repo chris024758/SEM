@@ -272,3 +272,14 @@
   color: var(--color-text);
   margin-bottom: 8px;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 16px 100px 16px; /* Avoid overlapping with mobile bottom tab */
+  }
+
+  .sidebar {
+    padding: 16px;
+  }
+}
