@@ -123,6 +123,92 @@
   gap: 20px;
 }
 
+/* ── Curated Sections ─────────────────────────────── */
+.section {
+  margin-bottom: 48px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.sectionSub {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.seeAll {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: var(--transition);
+  white-space: nowrap;
+  margin-top: 4px;
+}
+
+.seeAll:hover {
+  color: var(--color-primary-dk);
+}
+
+/* Featured — 3-column grid with badge */
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.featuredCard {
+  position: relative;
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--color-primary-dk);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: var(--radius-xl);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* New Arrivals — horizontal scroll strip */
+.horizontalScroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.horizontalScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollCard {
+  flex: 0 0 220px;
+}
+
 .emptyState {
   text-align: center;
   padding: 60px 20px;

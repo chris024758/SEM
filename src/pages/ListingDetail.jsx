@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { MapPin, Clock, Star, Heart } from 'lucide-react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { MapPin, Clock, Star, Heart, Tag } from 'lucide-react';
 import { listings } from '../data/mockListings';
+import { useSaved } from '../context/SavedContext';
+import { useAuth } from '../context/AuthContext';
 import ListingCard from '../components/ListingCard';
+import OfferModal from '../components/OfferModal';
 import styles from './ListingDetail.module.css';
 
 export default function ListingDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [showOffer, setShowOffer] = useState(false);
 
-  // Find listing by ID
+  const { isSaved, toggle } = useSaved();
+  const { isLoggedIn } = useAuth();
+
   const item = listings.find(l => l.id === id);
+  const saved = item ? isSaved(item.id) : false;
 
-  // Reset image index when navigating between items
   useEffect(() => {
     setActiveImageIndex(0);
-    window.scrollTo(0, 0); // Scroll to top on load
+    window.scrollTo(0, 0);
   }, [id]);
 
   if (!item) {
@@ -30,18 +37,24 @@ export default function ListingDetail() {
     );
   }
 
-  // Get 4 other items in the same category (or just random) for the "You might also like"
   const relatedItems = listings
     .filter(l => l.id !== item.id && l.category === item.category)
     .slice(0, 4);
 
-  // If not enough related items, pad with general items
   if (relatedItems.length < 4) {
     const paddedItems = listings
       .filter(l => l.id !== item.id && !relatedItems.includes(l))
       .slice(0, 4 - relatedItems.length);
     relatedItems.push(...paddedItems);
   }
+
+  const handleMessageSeller = () => {
+    if (!isLoggedIn) {
+      navigate('/auth', { state: { from: `/messages/${encodeURIComponent(item.seller.name)}` } });
+    } else {
+      navigate(`/messages/${encodeURIComponent(item.seller.name)}`);
+    }
+  };
 
   return (
     <div className={`page-wrapper ${styles.container}`}>
@@ -67,7 +80,6 @@ export default function ListingDetail() {
             />
           </div>
 
-          {/* Thumbnails (only show if more than 1 image) */}
           {item.images.length > 1 && (
             <div className={styles.thumbnailRow}>
               {item.images.map((imgSrc, index) => (
@@ -118,19 +130,25 @@ export default function ListingDetail() {
             </Link>
 
             <div className={styles.actions}>
-              <Link 
-                to={`/messages/${encodeURIComponent(item.seller.name)}`}
+              <button
                 className={styles.primaryBtn}
-                style={{ textAlign: 'center' }}
+                onClick={handleMessageSeller}
               >
                 Message Seller
-              </Link>
+              </button>
               <button 
-                className={styles.ghostBtn}
-                onClick={() => alert('Demo: Saved to wishlist!')}
+                className={styles.offerBtn}
+                onClick={() => setShowOffer(true)}
               >
-                <Heart size={18} fill={item.saved ? "currentColor" : "none"} />
-                {item.saved ? 'Saved to Wishlist' : 'Save to Wishlist'}
+                <Tag size={16} />
+                Make an Offer
+              </button>
+              <button 
+                className={`${styles.ghostBtn} ${saved ? styles.ghostBtnSaved : ''}`}
+                onClick={() => toggle(item.id)}
+              >
+                <Heart size={18} fill={saved ? 'currentColor' : 'none'} />
+                {saved ? 'Saved' : 'Save'}
               </button>
             </div>
           </div>
@@ -143,13 +161,20 @@ export default function ListingDetail() {
         <p className={styles.description}>{item.description}</p>
       </div>
 
-      <h2 className={styles.sectionHeading}>You might also like</h2>
+      <div className={styles.relatedHeader}>
+        <h2 className={styles.sectionHeading}>More in {item.category}</h2>
+        <Link to={`/search?category=${encodeURIComponent(item.category)}`} className={styles.seeAllLink}>
+          See all →
+        </Link>
+      </div>
       <div className={styles.relatedGrid}>
         {relatedItems.map((related) => (
           <ListingCard key={related.id} listing={related} />
         ))}
       </div>
 
+      {/* Offer Modal */}
+      {showOffer && <OfferModal listing={item} onClose={() => setShowOffer(false)} />}
     </div>
   );
 }

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useSaved } from '../context/SavedContext';
 import styles from './ListingCard.module.css';
 
 export default function ListingCard({ listing }) {
-  // Format price roughly
+  const { isSaved, toggle } = useSaved();
+  const saved = isSaved(listing.id);
   const formattedPrice = `₹${listing.price.toLocaleString('en-IN')}`;
 
   return (
@@ -17,15 +19,14 @@ export default function ListingCard({ listing }) {
         </div>
         
         <button 
-          className={`${styles.heartBtn} ${listing.saved ? styles.saved : ''}`}
+          className={`${styles.heartBtn} ${saved ? styles.saved : ''}`}
           onClick={(e) => {
-            e.preventDefault(); // Prevent navigating to /listing/:id
-            // In a real app we'd toggle the save state here
-            console.log('Toggle save for', listing.id);
+            e.preventDefault();
+            toggle(listing.id);
           }}
-          aria-label="Save listing"
+          aria-label={saved ? 'Remove from wishlist' : 'Save to wishlist'}
         >
-          <Heart size={16} fill={listing.saved ? "currentColor" : "none"} />
+          <Heart size={16} fill={saved ? 'currentColor' : 'none'} />
         </button>
       </div>
 

@@ -1,71 +1,336 @@
+/* ── Container & Header ─────────────────────────────── */
 .adminContainer {
   padding: 40px;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
 .header {
-  margin-bottom: 32px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .header h1 {
-  font-size: 32px;
+  font-size: 30px;
   color: var(--color-primary-dk);
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .header p {
   color: var(--color-text-muted);
+  font-size: 14px;
 }
 
-.statsGrid {
+.headerMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+.liveTag {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1E8E3E;
+  background-color: #E6F4EA;
+  padding: 4px 10px;
+  border-radius: var(--radius-xl);
+}
+
+.lastUpdated {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* ── Tab Nav ─────────────────────────────────────────── */
+.tabNav {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0;
+}
+
+.tabBtn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: -1px;
+  font-family: var(--font-body);
+}
+
+.tabBtn:active { transform: none; }
+
+.tabBtn:hover {
+  color: var(--color-text);
+}
+
+.tabBtnActive {
+  color: var(--color-primary-dk);
+  font-weight: 600;
+  border-bottom-color: var(--color-primary);
+}
+
+/* ── KPI Cards ───────────────────────────────────────── */
+.kpiGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
-  margin-bottom: 48px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
 }
 
-.statCard {
+.kpiCard {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.kpiCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.kpiIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.kpiBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kpiLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kpiValue {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.5px;
+}
+
+.kpiTrend {
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.trendUp   { color: #1E8E3E; }
+.trendDown { color: #B84040; }
+
+/* ── Charts Row ──────────────────────────────────────── */
+.chartsRow {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.chartCard {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 24px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
   box-shadow: var(--shadow-sm);
 }
 
-.statIcon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background-color: var(--color-surface-2);
-  color: var(--color-primary);
+.chartHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chartHeader h2 {
+  font-size: 16px;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.chartHeader p {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.chartLegend {
+  display: flex;
+  gap: 16px;
+}
+
+.legendItem {
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.statInfo h3 {
-  font-size: 14px;
-  font-family: var(--font-body);
+  gap: 6px;
+  font-size: 12px;
   color: var(--color-text-muted);
-  font-weight: 500;
-  margin-bottom: 4px;
 }
 
-.statInfo p {
-  font-size: 28px;
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.chartSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Bar Chart ───────────────────────────────────────── */
+.barChart {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 4px;
+}
+
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.barLabel {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.barTrack {
+  flex: 1;
+  height: 10px;
+  background-color: var(--color-surface-2);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: var(--radius-xl);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.barCount {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  width: 24px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ── Platform Health ─────────────────────────────────── */
+.healthSection {
+  margin-bottom: 0;
+}
+
+.healthSection h2 {
+  font-size: 18px;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.healthGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.healthCard {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.healthIcon {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.healthBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.healthLabel {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.healthValue {
+  font-size: 20px;
   font-family: var(--font-display);
   font-weight: 700;
   color: var(--color-text);
 }
 
-.tableSection h2 {
-  font-size: 24px;
-  color: var(--color-text);
+/* ── Table Section ───────────────────────────────────── */
+.tableSection,
+.usersSection {
+  margin-top: 0;
+}
+
+.tableSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 16px;
+}
+
+.tableSectionHeader h2 {
+  font-size: 20px;
+  color: var(--color-text);
+}
+
+.tableCount {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface-2);
+  padding: 4px 12px;
+  border-radius: var(--radius-xl);
 }
 
 .tableWrapper {
@@ -82,18 +347,33 @@
   text-align: left;
 }
 
-.dataTable th, .dataTable td {
-  padding: 16px 24px;
+.dataTable th,
+.dataTable td {
+  padding: 14px 20px;
   border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
 }
 
 .dataTable th {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--color-text-muted);
   background-color: var(--color-surface-2);
+  white-space: nowrap;
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sortable:hover {
+  color: var(--color-text);
 }
 
 .dataTable tbody tr:last-child td {
@@ -101,53 +381,77 @@
 }
 
 .dataTable tbody tr:hover {
-  background-color: rgba(0,0,0,0.02);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.itemCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.itemThumb {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
 }
 
 .itemTitle {
   font-weight: 600;
   color: var(--color-text);
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.featuredBadge {
+  background-color: #FEF7E0;
+  color: #E37400;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-xl);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.categoryCell {
+  color: var(--color-text-muted);
+  font-size: 13px;
 }
 
 .statusBadge {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: var(--radius-xl);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
 }
 
-.statusBadge.active {
-  background-color: #E6F4EA;
-  color: #1E8E3E;
-}
-
-.statusBadge.pending {
-  background-color: #FEF7E0;
-  color: #E37400;
-}
+.statusBadge.active  { background-color: #E6F4EA; color: #1E8E3E; }
+.statusBadge.pending { background-color: #FEF7E0; color: #E37400; }
 
 .actionsCell {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .iconBtn {
-  padding: 8px;
+  padding: 6px;
   border-radius: var(--radius-sm);
   color: var(--color-text-muted);
   transition: var(--transition);
+  display: flex;
+  align-items: center;
 }
 
-.iconBtn:hover {
-  background-color: var(--color-surface-2);
-  color: var(--color-primary);
-}
-
-.iconBtn.deleteBtn:hover {
-  background-color: #FCE8E6;
-  color: var(--color-danger);
-}
+.iconBtn:hover { background-color: var(--color-surface-2); color: var(--color-primary); }
+.iconBtnActive { color: #E37400 !important; }
+.deleteBtn:hover { background-color: #FCE8E6; color: var(--color-danger) !important; }
 
 .emptyState {
   text-align: center;
@@ -156,23 +460,124 @@
   font-style: italic;
 }
 
-/* Mobile Responsiveness */
+/* ── Users Tab ───────────────────────────────────────── */
+.userList {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+}
+
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.15s ease;
+}
+
+.userRow:last-child { border-bottom: none; }
+.userRow:hover { background-color: rgba(0,0,0,0.02); }
+
+.userAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.userInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.userEmail {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.userMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.userJoined {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.userListings {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary-dk);
+  background-color: var(--color-surface-2);
+  padding: 2px 8px;
+  border-radius: var(--radius-xl);
+}
+
+.userStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.userStatCard {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: var(--shadow-sm);
+}
+
+.userStatNum {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.userStatLabel {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .kpiGrid { grid-template-columns: repeat(2, 1fr); }
+  .chartsRow { grid-template-columns: 1fr; }
+  .healthGrid { grid-template-columns: repeat(2, 1fr); }
+  .userStatsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
   .adminContainer {
-    padding: 24px 16px 100px 16px; /* Extra bottom padding for mobile navbar */
+    padding: 20px 16px 100px;
   }
-
-  .header h1 {
-    font-size: 28px;
-  }
-
-  .statsGrid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .dataTable th, .dataTable td {
-    padding: 12px 16px;
-    white-space: nowrap;
-  }
+  .kpiGrid { grid-template-columns: 1fr; gap: 12px; }
+  .healthGrid { grid-template-columns: 1fr 1fr; }
+  .userStatsGrid { grid-template-columns: 1fr 1fr; }
+  .dataTable th, .dataTable td { padding: 12px 14px; white-space: nowrap; }
+  .header { flex-direction: column; }
+  .tabBtn { padding: 8px 14px; font-size: 13px; }
 }
